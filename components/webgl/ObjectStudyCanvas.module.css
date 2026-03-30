@@ -1,0 +1,106 @@
+.shell {
+  position: relative;
+  width: 100%;
+  min-height: 24rem;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-strong) 100%);
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.fallback {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.frame,
+.object,
+.label {
+  position: absolute;
+}
+
+.frame {
+  inset: 7% 8%;
+  border: 1px solid var(--line-strong);
+}
+
+.object {
+  inset: 16% 16%;
+  display: grid;
+  place-items: center;
+}
+
+.slab,
+.wire,
+.plate {
+  position: absolute;
+  display: block;
+}
+
+.slab {
+  width: 46%;
+  height: 62%;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-contrast);
+  opacity: 0.08;
+  transform: rotate(21deg) translateX(-8%);
+}
+
+.wire {
+  width: 62%;
+  height: 62%;
+  border: 1px solid var(--line-strong);
+  transform: rotate(-14deg);
+}
+
+.plate {
+  width: 52%;
+  height: 52%;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(135deg, transparent 0 46%, var(--line) 46% 54%, transparent 54% 100%),
+    linear-gradient(180deg, var(--surface-strong) 0%, transparent 100%);
+}
+
+.label {
+  left: 1rem;
+  bottom: 1rem;
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.shell :global(canvas) {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+.shell :global(canvas:focus-visible) {
+  outline: 1px solid var(--line-strong);
+  outline-offset: -1px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (width <= 760px) {
+  .shell {
+    min-height: 18rem;
+    aspect-ratio: 6 / 5;
+  }
+}

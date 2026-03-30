@@ -1,0 +1,147 @@
+.section {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.grid {
+  align-items: start;
+}
+
+.copy {
+  grid-column: span 5;
+  display: grid;
+  gap: 1.35rem;
+  padding-top: 1.5rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(3.3rem, 8vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+  max-width: 7.2ch;
+}
+
+.body {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.4rem;
+}
+
+.primaryAction {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--surface-contrast);
+  background: var(--surface-contrast);
+  color: var(--button-text);
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.stage {
+  grid-column: 7 / span 6;
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.stageNote {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.stageNote p,
+.stageNote span {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.stageNote p {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-soft);
+  white-space: nowrap;
+}
+
+.stageNote span {
+  max-width: 30ch;
+  color: var(--muted);
+}
+
+.facts {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.fact {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.factLabel,
+.factValue {
+  margin: 0;
+}
+
+.factLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--accent-soft);
+}
+
+.factValue {
+  max-width: 28ch;
+  line-height: 1.6;
+}
+
+@media (width <= 1100px) {
+  .copy,
+  .stage {
+    grid-column: span 12;
+  }
+
+  .copy {
+    padding-top: 0;
+  }
+
+  .stage {
+    order: -1;
+  }
+}
+
+@media (width <= 760px) {
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .stageNote {
+    flex-direction: column;
+  }
+}

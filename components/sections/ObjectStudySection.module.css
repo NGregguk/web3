@@ -1,0 +1,86 @@
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.copy {
+  grid-column: span 4;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.stage {
+  grid-column: 6 / span 7;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.notes {
+  display: grid;
+  gap: 1rem;
+}
+
+.note {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.note h3,
+.note p,
+.stageMeta p,
+.stageMeta span {
+  margin: 0;
+}
+
+.note h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.note p {
+  margin-top: 0.7rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.stageMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid var(--line);
+}
+
+.stageMeta p,
+.stageMeta span {
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.stageMeta p {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-soft);
+  white-space: nowrap;
+}
+
+.stageMeta span {
+  max-width: 32ch;
+  color: var(--muted);
+}
+
+@media (width <= 980px) {
+  .copy,
+  .stage {
+    grid-column: span 12;
+  }
+}
+
+@media (width <= 760px) {
+  .stageMeta {
+    flex-direction: column;
+  }
+}

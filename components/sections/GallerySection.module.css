@@ -1,0 +1,109 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gutter);
+  margin-top: 2rem;
+}
+
+.item {
+  grid-column: span 4;
+  min-height: 18rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+}
+
+.item[data-size="wide"] {
+  grid-column: span 8;
+}
+
+.item[data-size="tall"] {
+  min-height: 24rem;
+}
+
+.artboard {
+  position: relative;
+  overflow: hidden;
+}
+
+.formA,
+.formB {
+  position: absolute;
+  display: block;
+  border: 1px solid var(--line-strong);
+}
+
+.formA {
+  inset: 12%;
+}
+
+.formB {
+  width: 42%;
+  height: 66%;
+  top: 18%;
+  left: 32%;
+  transform: rotate(18deg);
+  background:
+    linear-gradient(90deg, transparent 0 46%, var(--line) 46% 54%, transparent 54% 100%),
+    linear-gradient(180deg, var(--surface-strong) 0%, transparent 100%);
+}
+
+.item[data-tone="graphite"] .formB {
+  left: 18%;
+  width: 56%;
+  height: 34%;
+  transform: rotate(-12deg);
+  background:
+    linear-gradient(180deg, transparent 0 44%, var(--line) 44% 54%, transparent 54% 100%),
+    linear-gradient(180deg, var(--surface-contrast) 0%, transparent 100%);
+}
+
+.item[data-tone="paper"] .formA {
+  inset: 16% 20%;
+}
+
+.caption {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.caption h3,
+.caption p {
+  margin: 0;
+}
+
+.caption h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.caption p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (width <= 980px) {
+  .item,
+  .item[data-size="wide"] {
+    grid-column: span 6;
+  }
+}
+
+@media (width <= 720px) {
+  .item,
+  .item[data-size="wide"] {
+    grid-column: span 12;
+  }
+}

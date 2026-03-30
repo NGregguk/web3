@@ -1,0 +1,33 @@
+.heading {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 54rem;
+}
+
+.compact {
+  max-width: 42rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  max-width: 12ch;
+}
+
+.copy {
+  margin: 0;
+  max-width: 52ch;
+  line-height: 1.75;
+  color: var(--muted);
+}

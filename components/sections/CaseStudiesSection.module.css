@@ -1,0 +1,159 @@
+.list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.case {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gutter);
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.reverse .media {
+  grid-column: 1 / span 5;
+}
+
+.reverse .body {
+  grid-column: 7 / span 6;
+}
+
+.media {
+  grid-column: 1 / span 7;
+  position: relative;
+  min-height: clamp(18rem, 34vw, 24rem);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.body {
+  grid-column: 9 / span 4;
+  display: grid;
+  gap: 1rem;
+}
+
+.mediaPlate,
+.mediaBlock,
+.mediaOutline {
+  position: absolute;
+  display: block;
+}
+
+.mediaPlate {
+  inset: 12% 14%;
+  border: 1px solid var(--line-strong);
+}
+
+.mediaBlock {
+  width: 42%;
+  height: 70%;
+  top: 16%;
+  left: 28%;
+  background:
+    linear-gradient(135deg, transparent 0 44%, var(--line) 44% 56%, transparent 56% 100%),
+    linear-gradient(180deg, var(--surface-strong), transparent);
+  border: 1px solid var(--line-strong);
+  transform: rotate(18deg);
+}
+
+.mediaOutline {
+  width: 55%;
+  height: 55%;
+  left: 20%;
+  top: 23%;
+  border: 1px solid var(--line-strong);
+  transform: rotate(-16deg);
+}
+
+.mediaTag {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.media[data-tone="graphite"] .mediaBlock {
+  left: 34%;
+  width: 35%;
+  background:
+    linear-gradient(0deg, transparent 0 42%, var(--line) 42% 52%, transparent 52% 100%),
+    linear-gradient(180deg, var(--surface-contrast) 0%, transparent 100%);
+  opacity: 0.78;
+}
+
+.media[data-tone="paper"] .mediaOutline {
+  width: 62%;
+  height: 36%;
+  left: 18%;
+  top: 28%;
+}
+
+.meta,
+.summary,
+.detailList dt,
+.detailList dd,
+.body h3 {
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--accent-soft);
+}
+
+.body h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.summary {
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.detailList {
+  display: grid;
+  gap: 1rem;
+}
+
+.detailList div {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.detailList dt {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--accent-soft);
+}
+
+.detailList dd {
+  margin-top: 0.55rem;
+  line-height: 1.65;
+}
+
+@media (width <= 1020px) {
+  .media,
+  .body,
+  .reverse .media,
+  .reverse .body {
+    grid-column: span 12;
+  }
+}
