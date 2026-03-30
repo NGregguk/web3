@@ -1,0 +1,137 @@
+.shell {
+  position: relative;
+  width: 100%;
+  min-height: 24rem;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-strong) 100%);
+  overflow: hidden;
+}
+
+.fallback {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.frame,
+.grid,
+.stage,
+.label {
+  position: absolute;
+}
+
+.frame {
+  inset: 7% 8%;
+  border: 1px solid var(--line-strong);
+}
+
+.grid {
+  inset: 12% 10%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 14%,
+      color-mix(in srgb, var(--line) 30%, transparent) 14% 15%,
+      transparent 15% 100%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 0 14%,
+      color-mix(in srgb, var(--line) 20%, transparent) 14% 15%,
+      transparent 15% 100%
+    );
+  background-size: 18% 18%;
+  opacity: 0.22;
+  mask-image: radial-gradient(circle at center, black 0 52%, transparent 88%);
+}
+
+.stage {
+  inset: 16% 16%;
+  display: grid;
+  place-items: center;
+}
+
+.orbit,
+.beam,
+.core {
+  position: absolute;
+  display: block;
+}
+
+.orbit {
+  width: 58%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  transform: rotate(18deg);
+}
+
+.orbit::after {
+  content: "";
+  position: absolute;
+  inset: 13%;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+}
+
+.beam {
+  width: 78%;
+  height: 22%;
+  border: 1px solid color-mix(in srgb, var(--line-strong) 70%, transparent);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--surface-contrast) 42%, transparent) 24%,
+      transparent 78%
+    );
+  opacity: 0.54;
+  transform: rotate(-18deg);
+}
+
+.core {
+  width: 28%;
+  aspect-ratio: 1;
+  border-radius: 28%;
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(circle at 35% 35%, var(--surface-contrast) 0%, transparent 68%),
+    linear-gradient(135deg, var(--surface-strong) 0%, transparent 100%);
+  transform: rotate(24deg);
+}
+
+.label {
+  left: 1rem;
+  bottom: 1rem;
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.shell :global(canvas) {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: pan-y;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (width <= 760px) {
+  .shell {
+    min-height: 18rem;
+    aspect-ratio: 6 / 5;
+  }
+}

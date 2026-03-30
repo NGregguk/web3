@@ -4,13 +4,14 @@ import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { templateConfig } from "@/data/templateConfig";
-import styles from "./ObjectStudyCanvas.module.css";
+import styles from "./WebglFeatureCanvas.module.css";
 
-const ObjectStudyScene = dynamic(() => import("./ObjectStudyScene"), {
+const WebglFeatureScene = dynamic(() => import("./WebglFeatureScene"), {
   ssr: false,
   loading: () => (
     <div className={styles.fallback}>
       <div className={styles.frame} />
+      <div className={styles.grid} />
     </div>
   )
 });
@@ -27,23 +28,24 @@ function supportsWebGL() {
   }
 }
 
-function ObjectFallback({ label }) {
+function StageFallback({ label }) {
   return (
     <div className={styles.fallback}>
       <div className={styles.frame} />
-      <div className={styles.object}>
-        <span className={styles.slab} />
-        <span className={styles.wire} />
-        <span className={styles.plate} />
+      <div className={styles.grid} />
+      <div className={styles.stage}>
+        <span className={styles.orbit} />
+        <span className={styles.beam} />
+        <span className={styles.core} />
       </div>
       <p className={styles.label}>{label}</p>
     </div>
   );
 }
 
-export default function ObjectStudyCanvas() {
+export default function WebglFeatureCanvas() {
   const shellRef = useRef(null);
-  const { mounted } = useTheme();
+  const { mounted, theme } = useTheme();
   const [canRender, setCanRender] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [lowPower, setLowPower] = useState(false);
@@ -82,20 +84,20 @@ export default function ObjectStudyCanvas() {
 
   const showScene = mounted && shouldLoad && canRender && !reduceMotion;
   const label = reduceMotion
-    ? "Static object study for reduced motion"
+    ? "Static WebGL study for reduced motion"
     : shouldLoad
-    ? "WebGL object study fallback"
-    : "3D scene loads on approach";
+    ? "Procedural WebGL fallback"
+    : "Procedural WebGL scene loads on approach";
 
   return (
     <figure ref={shellRef} className={styles.shell}>
       <figcaption className={styles.srOnly}>
-        {templateConfig.productViewer.figcaption}
+        {templateConfig.webglFeature.figcaption}
       </figcaption>
       {showScene ? (
-        <ObjectStudyScene lowPower={lowPower} />
+        <WebglFeatureScene lowPower={lowPower} theme={theme} />
       ) : (
-        <ObjectFallback label={label} />
+        <StageFallback label={label} />
       )}
     </figure>
   );

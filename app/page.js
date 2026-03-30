@@ -6,9 +6,9 @@ import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import GallerySection from "@/components/sections/GallerySection";
 import HeroSection from "@/components/sections/HeroSection";
-import ObjectStudySection from "@/components/sections/ObjectStudySection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import WebglFeatureSection from "@/components/sections/WebglFeatureSection";
 
 export default function HomePage() {
   return (
@@ -18,7 +18,7 @@ export default function HomePage() {
       <main id="content" className="page-shell">
         <HeroSection />
         <AboutSection />
-        <ObjectStudySection />
+        <WebglFeatureSection />
         <ServicesSection />
         <CaseStudiesSection />
         <FeaturesSection />

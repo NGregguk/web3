@@ -2,7 +2,7 @@ import { templateConfig } from "./templateConfig";
 
 export const navLinks = [
   { href: "#about", label: "Story" },
-  { href: "#object-study", label: "Watch" },
+  { href: "#webgl-stage", label: "WebGL" },
   { href: "#services", label: "Details" },
   { href: "#case-studies", label: "Wear" },
   { href: "#features", label: "Specifications" },
@@ -21,8 +21,8 @@ export const heroSection = {
   body:
     "A clean white-dial watch with a slim black case and woven mesh bracelet, designed for everyday wear without losing the feel of a dress piece.",
   primaryAction: {
-    label: "View the watch",
-    href: "#object-study"
+    label: "View the stage",
+    href: "#webgl-stage"
   },
   secondaryAction: {
     label: "See specifications",
@@ -30,7 +30,7 @@ export const heroSection = {
   },
   stageLabel: "Hero film",
   stageNote:
-    "A looping product study introduces the dial, case, and bracelet before the live watch view takes over below."
+    "A looping product study introduces the dial, case, and bracelet before a lighter procedural WebGL stage takes over below."
 };
 
 export const heroFacts = [
@@ -110,26 +110,26 @@ export const services = [
   }
 ];
 
-export const objectStudy = {
-  label: "Watch View",
-  title: "Turn the watch in the hand. Read the case, dial, and bracelet.",
+export const webglFeatureSection = {
+  label: "WebGL Stage",
+  title: "Depth, motion, and atmosphere without shipping a product model.",
   copy:
-    "A still image sells mood. A live view is better for proportion. This section lets the watch slow down and prove the details from every side.",
-  stageLabel: "Live watch view",
+    "This section keeps the page tactile with procedural geometry, responsive motion, and shader-driven surfaces. It avoids the heavier model-loading path that can make hosting and deployment less predictable.",
+  stageLabel: "Procedural WebGL",
   stageNote:
-    "Drag the watch with mouse or touch. The stage stays fixed so the case and bracelet can be judged from every side.",
+    "The composition is generated directly in the browser from code-driven geometry and lighting. No GLB or texture pack is required for this stage.",
   notes: [
     {
-      title: "360 control",
-      text: "Rotate the watch directly to inspect the bezel, lugs, and bracelet instead of relying on one staged angle."
+      title: "Lighter payload",
+      text: "The scene is built from procedural forms instead of external model files, which trims deployment weight and removes asset-loading failure points."
     },
     {
-      title: "Closer read",
-      text: "The woven strap and slim case make more sense once the watch can be turned and judged in motion."
+      title: "Ambient interaction",
+      text: "Pointer movement still influences the stage, so the page keeps a live, tactile feel without requiring drag controls or model decoding."
     },
     {
-      title: "On-demand loading",
-      text: "The viewer waits until this section approaches, keeping the opening experience lighter and faster."
+      title: "Theme aware",
+      text: "The abstract composition inherits the site's light and dark palettes so the section still feels integrated with the rest of the template."
     }
   ]
 };
@@ -293,11 +293,11 @@ export const footerContent = {
   statement:
     "A light-powered dress watch built around a clean dial, slim case, and woven mesh bracelet.",
   meta:
-    "Hero film, live watch view, and product details tuned for desktop and mobile."
+    "Hero film, procedural WebGL stage, and product details tuned for desktop and mobile."
 };
 
 export const footerLinks = [
-  { href: "#object-study", label: "3D view" },
+  { href: "#webgl-stage", label: "WebGL stage" },
   { href: "#features", label: "Specifications" },
   { href: "#gallery", label: "Gallery" },
   { href: "#testimonials", label: "Reviews" }

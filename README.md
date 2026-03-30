@@ -5,7 +5,7 @@ A polished Next.js product landing page template for watches and similarly detai
 The template combines:
 
 - a looping hero film
-- a dedicated interactive 3D product stage
+- a dedicated procedural WebGL stage
 - editorial typography and structured sections
 - light and dark themes
 - reduced-motion and static fallbacks
@@ -16,7 +16,7 @@ The template combines:
 - React 19
 - plain CSS modules and global CSS variables
 - GSAP for reveal motion
-- Three.js via `@react-three/fiber` for the product viewer
+- Three.js via `@react-three/fiber` for the abstract WebGL scenes
 
 ## Run locally
 
@@ -32,7 +32,7 @@ Then open `http://localhost:3000`.
 There are two main files to customize:
 
 - `data/templateConfig.js`
-  Purpose: brand identity, metadata, theme storage key, asset paths, and 3D viewer tuning.
+  Purpose: brand identity, metadata, theme storage key, hero asset paths, and WebGL figcaptions.
 - `data/siteContent.js`
   Purpose: navigation labels, hero copy, product details, specifications, gallery captions, and reviews.
 
@@ -42,23 +42,14 @@ Hero video:
 
 - `public/videos/hero-video/watch-turning.mp4`
 
-3D model:
-
-- `public/models/citizen-watch/source/SAAT NeeEDA.glb`
-
-You can change both paths in `data/templateConfig.js`.
+The secondary WebGL section is procedural, so it does not require a model file in `public/`.
 
 ## Quick Customization
 
 1. Update brand and metadata in `data/templateConfig.js`.
-2. Replace the hero video and product model paths in `data/templateConfig.js`.
+2. Replace the hero video path in `data/templateConfig.js`.
 3. Rewrite the product copy in `data/siteContent.js`.
-4. If needed, tune the first-view 3D composition in `data/templateConfig.js`:
-   - `productViewer.initialRotation`
-   - `productViewer.camera`
-   - `productViewer.model.position`
-   - `productViewer.model.rotation`
-   - `productViewer.lighting`
+4. If needed, retune the procedural WebGL section in `components/webgl/WebglFeatureScene.jsx` and `components/webgl/ScenePrimitives.jsx`.
 5. Run `npm run build` before publishing.
 
 ## Structure
@@ -76,12 +67,12 @@ You can change both paths in `data/templateConfig.js`.
 - `components/sections/`
   Landing-page sections.
 - `components/webgl/`
-  Hero media shell and interactive 3D viewer.
+  Hero media shell and procedural WebGL scenes.
 - `data/`
   Template config and all editable content.
 
 ## Notes
 
 - The hero video falls back to static artwork for reduced-motion users or media load failures.
-- The 3D viewer lazy-loads near the viewport to keep the opening section lighter.
+- The WebGL stage lazy-loads near the viewport to keep the opening section lighter.
 - The template is designed to be edited from the data layer first, not by rewriting components.
